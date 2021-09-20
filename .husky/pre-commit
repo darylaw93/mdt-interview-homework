@@ -1,0 +1,11 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# before commit - check typescript type
+npm run type:check
+
+# before commit - run lint:staged to:
+# 1. auto fix eslint issue
+# 2. prettify staged file
+# check script comand and .lintstagedrc for more info
+npm run lint:staged
