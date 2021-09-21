@@ -26,17 +26,15 @@ You are free to use any other libraries that you feel is needed for this project
 
 Have fun with the project and good luck!
 
+### Prerequisites
+[Node.js](https://nodejs.org/en/)
+
 ### Setup Mock Server
 1. Clone the repo into your local machine.
 2. Run `npm install` to install the dependencies.
 3. Run `npm start` to start the mock server. Your mock server should start on `http://localhost:8080` by default.
 4. Install postman into your computer and import the [postman collection](https://github.com/RDCMDT/mdt-mockserver/tree/master/postman_collection) we provided.
-5. You may now interact with the mock server via the Restful APIs. Please find below, the sample header and sample body for the APIs provided. 
-
-
-### Prerequisites
-Node.js
-
+5. You may now interact with the mock server via the Restful APIs. Please find below the sample header and sample body for the APIs in the postman collection.
 
 ### Instruction
 1. Authenticate the user and retrieve the jwt token via "/authenticate/login"
