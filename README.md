@@ -50,6 +50,12 @@ Node.js
    Accept: "application/json"
    Authorization: {{your-token}}
    ```
+   
+### Wireframe
+![01 - Landing](https://user-images.githubusercontent.com/16426747/134101268-17618b7a-819d-4a9a-93cd-3acc57f92614.png)
+![02 - Balance](https://user-images.githubusercontent.com/16426747/134101234-c1ad8a39-80d5-4d47-ab40-79ec7d2cd43a.png)
+![03 - Transfer](https://user-images.githubusercontent.com/16426747/134101254-1f1594d1-cbc7-45f5-90ff-d87f32fac00f.png)
+
 
 ### Submission
 Upload to github and submit a link to your project. 
