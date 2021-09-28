@@ -50,7 +50,7 @@ Have fun with the project and good luck!
    ```
    
 ### Wireframe
-The wireframe is just for your references. If you have good sense on design, feel free to amend it and show us your creativity
+The wireframe is just for your references. If you have good sense on design, feel free to amend it and show us your creativity 😘
 
 ![01 - Landing](https://user-images.githubusercontent.com/16426747/134101268-17618b7a-819d-4a9a-93cd-3acc57f92614.png)
 ![02 - Balance](https://user-images.githubusercontent.com/16426747/134101234-c1ad8a39-80d5-4d47-ab40-79ec7d2cd43a.png)
