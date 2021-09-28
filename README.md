@@ -22,7 +22,7 @@ Your project should utilise all the APIs and we will evaluate your project based
 4. User is able to retrieve his/her list of payees
 5. User is able to make a transfer 
 
-You are free to use any other libraries that you feel is needed for this project. 
+<b>You are free to use any other libraries that you feel is needed for this project. But we are hoping candidate DO NOT heavily rely on UI library so that we can analyse your coding skills better.</b>
 
 Have fun with the project and good luck!
 
@@ -34,7 +34,7 @@ Have fun with the project and good luck!
 2. Run `npm install` to install the dependencies.
 3. Run `npm start` to start the mock server. Your mock server should start on `http://localhost:8080` by default.
 4. Install postman into your computer and import the [postman collection](https://github.com/RDCMDT/mdt-mockserver/tree/master/postman_collection) we provided.
-5. You may now interact with the mock server via the Restful APIs. Please find below the sample header and sample body for the APIs in the postman collection.
+5. You may now interact with the mock server via the Restful APIs. Please find the sample header and sample body for the APIs in the postman collection.
 
 ### Instruction
 1. Authenticate the user and retrieve the jwt token via "/authenticate/login"
@@ -50,13 +50,14 @@ Have fun with the project and good luck!
    ```
    
 ### Wireframe
+The wireframe is just for your references. If you have good sense on design, feel free to amend it and show us your creativity :)
 ![01 - Landing](https://user-images.githubusercontent.com/16426747/134101268-17618b7a-819d-4a9a-93cd-3acc57f92614.png)
 ![02 - Balance](https://user-images.githubusercontent.com/16426747/134101234-c1ad8a39-80d5-4d47-ab40-79ec7d2cd43a.png)
 ![03 - Transfer](https://user-images.githubusercontent.com/16426747/134101254-1f1594d1-cbc7-45f5-90ff-d87f32fac00f.png)
 
 
 ### Submission
-Upload to github and submit a link to your project. 
+Push your source code to github and submit the repo link.
 
 
 ### Evaluation Criteria
