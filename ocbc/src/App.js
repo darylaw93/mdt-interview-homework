@@ -1,13 +1,14 @@
 import './App.css';
 import { Route, Switch, Redirect, Link } from 'react-router-dom';
-import landingpage from './components/LandingPage';
-
+import LandingPage from './components/LandingPage';
+import Account from './components/Account';
 function App() {
   return (
     <div className="App">
       <main>
         <Switch>
-          <Route exact path="/" component={landingpage} />
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/account" component={Account} />
           <Redirect to="/" />
         </Switch>
       </main>
