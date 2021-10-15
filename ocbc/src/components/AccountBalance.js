@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
-
-const Account = () => {
+import Transfer from './Transfer';
+const Account = (props) => {
   const [date, setDate] = useState(new Date().getHours());
   const [currentTime, setCurrenttime] = useState(new Date().toLocaleString());
   const [balance, setBalance] = useState('');
   const [hide, setHide] = useState(false);
   const [showBalanceToggle, setShowBalanceToggle] = useState('Show Balance');
-
   const username = localStorage.getItem('username');
 
   const greeting = (element) => {
@@ -24,7 +24,6 @@ const Account = () => {
 
   const handleClick = (event) => {
     event.preventDefault();
-    console.log(showBalanceToggle);
     setHide((prevHide) => !prevHide);
     if (showBalanceToggle === 'Hide Balance') {
       return setShowBalanceToggle('Show Balance');
@@ -43,7 +42,6 @@ const Account = () => {
         },
       })
       .then((res) => {
-        console.log('called');
         setBalance(res.data.balance);
         setCurrenttime(new Date().toLocaleString());
       })
@@ -72,7 +70,21 @@ const Account = () => {
         )}
         {hide && <a>As of {currentTime}</a>}
       </div>
+      <div>
+        {' '}
+        <Link
+          to="/transfer"
+          style={{
+            display: 'inline-block',
+            textAlign: 'center',
+            width: '100px',
+          }}
+        >
+          Transfer
+        </Link>
+      </div>
       <br />
+      <div>{props.children}</div>
     </div>
   );
 };

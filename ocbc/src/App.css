@@ -56,3 +56,39 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
 }
+
+.accountBalance {
+  border: 1px solid black;
+  height: 200px;
+}
+
+.transactionBox {
+  height: 50px;
+}
+
+.transactionBox .transactionName {
+  float: left;
+}
+
+.transactionBox .transactionType {
+  float: left;
+}
+
+.transactionBox .transactionAmount {
+  float: right;
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.transactionBox .transactionCurrency {
+  float: right;
+}
+
+.payeeBox {
+  height: 50px;
+  border-bottom: 1px solid black;
+}
+
+.payeeBox div {
+  float: left;
+}
