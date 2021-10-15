@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
-const Transfer = () => {
+const Transfer = (props) => {
   const [recipient, setRecipient] = useState([]);
-  const [recipientList, setRecipientList] = useState([]);
   const [query, setQuery] = useState('');
   const [searchParam] = useState(['accountHolderName']);
-  let arr = [];
+  const history = useHistory();
 
   useEffect(() => {
     axios
@@ -25,9 +24,20 @@ const Transfer = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const handleClick = (event) => {
+    event.preventDefault();
+    console.log(event.currentTarget.childNodes[0].innerText);
+    console.log(event.currentTarget.childNodes[2].innerText);
+    props.setCustomerInfo({
+      customerName: `${event.currentTarget.childNodes[0].innerText}`,
+      customerAccountNo: `${event.currentTarget.childNodes[2].innerText}`,
+    });
+    history.push('confirmation');
+  };
+
   const list = search(recipient).map((data, index) => {
     return (
-      <div key={index} className="payeeBox">
+      <div key={index} className="payeeBox" onClick={handleClick}>
         <div style={{ fontSize: '16px' }}>{data.accountHolderName}</div>
         <br />
         <div style={{ fontSize: '12px', marginTop: '15px' }}>
@@ -37,10 +47,6 @@ const Transfer = () => {
     );
   });
 
-  const handleQuery = (event) => {
-    let string = event.currentTarget.value;
-    console.log(string);
-  };
   function search(items) {
     return items.filter((item) => {
       return searchParam.some((newItem) => {
@@ -53,18 +59,16 @@ const Transfer = () => {
   }
   return (
     <div>
-      <h1>Transfer Page</h1>
+      <h1>Select Recipient</h1>
       <Link to="/account">ᑉ</Link>
-      <form>
-        <div>
-          <input
-            type="search"
-            name="search-form"
-            placeholder="Search for..."
-            onKeyUp={(e) => setQuery(e.target.value)}
-          ></input>
-        </div>
-      </form>
+      <div>
+        <input
+          type="search"
+          name="search-form"
+          placeholder="Search for..."
+          onKeyUp={(e) => setQuery(e.target.value)}
+        ></input>
+      </div>
       {list}
     </div>
   );
