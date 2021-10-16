@@ -11,7 +11,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0px;
 }
 
 ::-webkit-scrollbar-track {
@@ -121,7 +121,6 @@ input:-webkit-autofill:active {
 
 .accountBalance .accountBalanceButton {
   position: relative;
-  display: inline-block;
   padding: 5px, 10px;
   font-size: 10px;
   text-transform: uppercase;
@@ -137,8 +136,6 @@ input:-webkit-autofill:active {
 }
 
 .transferButton {
-  position: relative;
-  display: inline-block;
   padding: 10px, 10px;
   margin-top: 10px;
   font-size: 20px;
@@ -146,7 +143,6 @@ input:-webkit-autofill:active {
   background-color: #f7f3e3;
   transition-duration: 0.4s;
   border-radius: 8px;
-  left: 0;
 }
 
 .transferButton :hover {
@@ -155,15 +151,14 @@ input:-webkit-autofill:active {
 }
 .transactionBody {
   overflow-y: scroll;
+  height: 330px;
 }
 
 .transactionBox {
-  height: 50px;
+  height: 75px;
   background-color: #ecf0f1;
   color: #2b2118;
-  margin-bottom: 5px;
-  margin-left: 5px;
-  border-radius: 10px;
+  border-bottom: 1px solid black;
   padding: 5px;
 }
 
@@ -178,6 +173,12 @@ input:-webkit-autofill:active {
 }
 
 .transactionBox .transactionAmount {
+  float: right;
+  font-size: 15px;
+  margin-right: 5px;
+}
+
+.transactionBox .transactionCurrency {
   float: right;
   font-size: 15px;
   margin-right: 5px;
