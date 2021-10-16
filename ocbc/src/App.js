@@ -9,15 +9,14 @@ import TransferSuccess from './components/TransferSuccess';
 
 function App() {
   const [customerInfo, setCustomerInfo] = useState({
-    customerName: 'hello',
-    customerAccountNo: '123456',
-  });
-
-  const [transferInfo, setTransferInfo] = useState({
     customerName: '',
     customerAccountNo: '',
-    amountTransferred: '',
   });
+  const [transferInfo, setTransferInfo] = useState({
+    transferAmount: '',
+    transferComments: '',
+  });
+
   return (
     <div className="App">
       <main>
@@ -37,8 +36,8 @@ function App() {
               setTransferInfo={setTransferInfo}
             />
           </Route>
-          <Route path="/transferSuccess" {...transferInfo}>
-            <TransferSuccess />
+          <Route path="/transferSuccess">
+            <TransferSuccess {...customerInfo} {...transferInfo} />
           </Route>
           <Redirect to="/" />
         </Switch>

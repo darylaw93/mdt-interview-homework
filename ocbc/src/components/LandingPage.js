@@ -28,8 +28,9 @@ const LandingPage = () => {
   };
   return (
     <>
-      <h1>Login!</h1>
       <div className="SignInForm">
+        <h2>OCBC Banking App</h2>
+        <br />
         <form onSubmit={HandleSubmit}>
           <div className="user-box">
             <input type="text" name="username" required />
@@ -40,8 +41,12 @@ const LandingPage = () => {
             <label>Password</label>
           </div>
           <button className="btstyle">Login</button>
-        </form>
-        {userWrong && <h5>Incorrect Username/Password</h5>}
+        </form>{' '}
+        {userWrong && (
+          <h5 style={{ color: '#ECF0F1' }}>
+            Incorrect Username and/or Password
+          </h5>
+        )}
       </div>
     </>
   );

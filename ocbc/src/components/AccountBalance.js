@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import Transfer from './Transfer';
+
 const Account = (props) => {
   const [date, setDate] = useState(new Date().getHours());
   const [currentTime, setCurrenttime] = useState(new Date().toLocaleString());
@@ -9,6 +10,7 @@ const Account = (props) => {
   const [hide, setHide] = useState(false);
   const [showBalanceToggle, setShowBalanceToggle] = useState('Show Balance');
   const username = localStorage.getItem('username');
+  const history = useHistory();
 
   const greeting = (element) => {
     if (element <= 16 && element > 12) {
@@ -58,7 +60,9 @@ const Account = (props) => {
       </h2>
       <div className="accountBalance">
         <h1>Account Balance</h1>
-        <a onClick={handleClick}>{showBalanceToggle}</a>
+        <button className="accountBalanceButton" onClick={handleClick}>
+          {showBalanceToggle}
+        </button>
         {hide && (
           <h2 className="balance">
             $
@@ -71,17 +75,22 @@ const Account = (props) => {
         {hide && <a>As of {currentTime}</a>}
       </div>
       <div>
-        {' '}
-        <Link
-          to="/transfer"
+        <button
+          onClick={() => {
+            history.push('/transfer');
+          }}
+          className="transferButton"
           style={{
             display: 'inline-block',
             textAlign: 'center',
-            width: '100px',
+            width: '40px',
           }}
         >
-          Transfer
-        </Link>
+          ⇌
+        </button>
+        <div style={{ fontSize: '12px', paddingTop: '5px' }}>
+          Transfer Money
+        </div>
       </div>
       <br />
       <div>{props.children}</div>

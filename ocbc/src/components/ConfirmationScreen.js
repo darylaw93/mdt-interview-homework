@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import axios from 'axios';
 
 const ConfirmationScreen = ({
@@ -6,18 +7,23 @@ const ConfirmationScreen = ({
   customerAccountNo,
   setTransferInfo,
 }) => {
+  const [isError, setIsError] = useState(false);
+  const history = useHistory();
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const comments = event.currentTarget.comments.value;
+    const transferComments = event.currentTarget.comments.value;
+    const transferAmount = event.currentTarget.amount.value;
+    const transferDate = new Date();
 
     axios
       .post(
         'http://localhost:8080/transfer',
         {
           recipientAccountNo: customerAccountNo,
-          amount: event.currentTarget.amount.value,
-          date: new Date(),
-          description: event.currentTarget.comments.value,
+          amount: transferAmount,
+          date: transferDate,
+          description: transferComments,
         },
         {
           headers: {
@@ -26,10 +32,17 @@ const ConfirmationScreen = ({
         }
       )
       .then((res) => {
-        console.log(res);
+        if (res.status === 200) {
+          setTransferInfo({
+            transferAmount: transferAmount,
+            transferComments: transferComments,
+          });
+          history.push('/transferSuccess');
+        }
       })
       .catch((err) => {
         console.log(err);
+        setIsError(true);
       });
     console.log(
       event.currentTarget.comments.value,
@@ -38,12 +51,11 @@ const ConfirmationScreen = ({
   };
 
   console.log(customerName, customerAccountNo);
-  console.log(setTransferInfo);
   return (
     <div>
       <div>Transferring to{customerName}</div>
       <form onSubmit={handleSubmit}>
-        <input name="amount" type="number" required />
+        <input name="amount" type="number" min="0.01" required />
         <input
           name="comments"
           type="text"
@@ -52,6 +64,9 @@ const ConfirmationScreen = ({
         />
         <button />
       </form>
+      {isError && (
+        <div>There was an error in your transfer, please try again</div>
+      )}
     </div>
   );
 };
