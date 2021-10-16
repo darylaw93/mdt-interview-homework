@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { LoggedContext } from '../App';
 import axios from 'axios';
 
 const Transfer = (props) => {
+  const loggedContext = useContext(LoggedContext);
   const [recipient, setRecipient] = useState([]);
   const [query, setQuery] = useState('');
   const [searchParam] = useState(['accountHolderName']);
   const history = useHistory();
-
   useEffect(() => {
     axios
       .get('http://localhost:8080/account/payees', {
@@ -26,9 +27,7 @@ const Transfer = (props) => {
 
   const handleClick = (event) => {
     event.preventDefault();
-    console.log(event.currentTarget.childNodes[0].innerText);
-    console.log(event.currentTarget.childNodes[2].innerText);
-    props.setCustomerInfo({
+    loggedContext.setCustomerInfo({
       customerName: `${event.currentTarget.childNodes[0].innerText}`,
       customerAccountNo: `${event.currentTarget.childNodes[2].innerText}`,
     });
@@ -59,13 +58,27 @@ const Transfer = (props) => {
   }
   return (
     <div>
+      <div
+        style={{
+          float: 'left',
+          margin: '5px',
+          fontSize: '20px',
+          cursor: 'pointer',
+        }}
+        onClick={() => {
+          history.push('/account');
+        }}
+      >
+        ❮ Back
+      </div>
+      <br />
       <h1>Select Recipient</h1>
-      <Link to="/account">ᑉ</Link>
       <div>
         <input
           type="search"
           name="search-form"
-          placeholder="Search for..."
+          className="searchForm"
+          placeholder="Search for a name"
           onKeyUp={(e) => setQuery(e.target.value)}
         ></input>
       </div>

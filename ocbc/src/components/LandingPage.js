@@ -6,6 +6,7 @@ const LandingPage = () => {
   const [userWrong, setUserWrong] = useState(false);
   const history = useHistory();
   const HandleSubmit = (event) => {
+    console.log('token', localStorage.getItem('access_token'));
     const username = event.target.elements.username.value.toLowerCase();
     const password = event.target.elements.password.value;
     console.log(username, password);

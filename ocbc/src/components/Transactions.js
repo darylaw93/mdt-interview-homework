@@ -5,7 +5,6 @@ const moment = require('moment');
 
 const Transactions = () => {
   const [list, setList] = useState([]);
-  const [isShown, setIsShown] = useState(false);
 
   useEffect(() => {
     axios
