@@ -183,7 +183,9 @@ input:-webkit-autofill:active {
   font-size: 15px;
   margin-right: 5px;
 }
-
+.payeeList {
+  overflow-y: scroll;
+}
 .payeeBox {
   height: 50px;
   background-color: #ecf0f1;
@@ -284,4 +286,12 @@ input:-webkit-autofill:active {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 30px;
+}
+
+.center {
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { LoggedContext } from '../App.js';
 import { useHistory } from 'react-router';
 import axios from 'axios';
+import ConfirmationBox from '../components/TransferConfirmationPageComponents/ConfirmationBox.js';
 
 const ConfirmationScreen = () => {
   const [isError, setIsError] = useState(false);
@@ -49,7 +50,6 @@ const ConfirmationScreen = () => {
     );
   };
 
-  console.log(loggedContext.customerName, loggedContext.customerAccountNo);
   return (
     <>
       <div
@@ -67,36 +67,11 @@ const ConfirmationScreen = () => {
       </div>
       <br />
       <h1>Pay To Account</h1>
-      <div className="confirmationBox">
-        <div>Transferring to</div>
-        <div style={{ fontWeight: 'bold' }}>{loggedContext.customerName}</div>
-        <div>Bank Account No. {loggedContext.customerAccountNo}</div>
-        <br />
-        <form onSubmit={handleSubmit}>
-          <div>Amount in SGD</div>
-          <input
-            className="searchForm"
-            name="amount"
-            type="number"
-            min="0.01"
-            step=".01"
-            required
-          />
-          <div>Add Comments for Recipient</div>
-          <input
-            className="searchForm"
-            name="comments"
-            type="text"
-            maxLength="30"
-            defaultValue="PayNow Transfer"
-            style={{ lineHeight: '2em' }}
-          />
-          <button className="confirmationButton">Transfer Now</button>
-        </form>
-        {isError && (
-          <div>There was an error in your transfer, please try again</div>
-        )}
-      </div>
+      <ConfirmationBox
+        customerName={loggedContext.customerName}
+        customerAccountNo={loggedContext.customerAccountNo}
+        setTransferInfo={loggedContext.setTransferInfo}
+      />
     </>
   );
 };

@@ -5,22 +5,24 @@ import axios from 'axios';
 const LandingPage = () => {
   const [userWrong, setUserWrong] = useState(false);
   const history = useHistory();
+
   const HandleSubmit = (event) => {
-    console.log('token', localStorage.getItem('access_token'));
+    event.preventDefault();
     const username = event.target.elements.username.value.toLowerCase();
     const password = event.target.elements.password.value;
-    console.log(username, password);
-    event.preventDefault();
+
     axios
       .post('http://localhost:8080/authenticate/login', {
         username: username,
         password: password,
       })
       .then((res) => {
-        localStorage.setItem('access_token', res.data.token);
-        localStorage.setItem('username', username);
-        console.log(res);
-        history.push('/account');
+        if (res.status === 200) {
+          localStorage.setItem('access_token', res.data.token);
+          localStorage.setItem('username', username);
+          console.log(res);
+          history.push('/account');
+        }
       })
       .catch((err) => {
         console.log(err);

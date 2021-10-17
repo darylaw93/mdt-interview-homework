@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Account from './AccountBalance';
+import Account from '../../Views/AccountBalancePage';
 const moment = require('moment');
 
 const Transactions = () => {

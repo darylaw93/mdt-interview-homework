@@ -1,11 +1,11 @@
 import './App.css';
 import React, { useState, createContext } from 'react';
 import { Route, Switch, Redirect, Link } from 'react-router-dom';
-import LandingPage from './components/LandingPage';
-import Transactions from './components/Transactions';
-import Transfer from './components/Transfer';
-import ConfirmationScreen from './components/ConfirmationScreen';
-import TransferSuccess from './components/TransferSuccess';
+import LandingPage from './Views/LandingPage';
+import Transactions from './components/AccountBalancePageComponents/Transactions';
+import Transfer from './Views/TransferRecipientPage';
+import ConfirmationScreen from './Views/TransferConfirmationPage';
+import TransferSuccess from './Views/TransferSuccess';
 
 export const LoggedContext = createContext();
 
@@ -37,7 +37,7 @@ function App() {
             <div className="center">
               Please Login To Access
               <br />
-              <button>
+              <button className="accountBalanceButton">
                 <Link to="/">Login</Link>
               </button>
             </div>

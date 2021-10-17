@@ -1,13 +1,14 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { LoggedContext } from '../App';
 import axios from 'axios';
+import PayeeBox from '../components/TransferRecipientPageComponents/PayeeBox';
 
-const Transfer = (props) => {
+const Transfer = () => {
   const loggedContext = useContext(LoggedContext);
   const [recipient, setRecipient] = useState([]);
   const [query, setQuery] = useState('');
-  const [searchParam] = useState(['accountHolderName']);
+
   const history = useHistory();
   useEffect(() => {
     axios
@@ -25,37 +26,6 @@ const Transfer = (props) => {
       .catch((err) => console.log(err));
   }, []);
 
-  const handleClick = (event) => {
-    event.preventDefault();
-    loggedContext.setCustomerInfo({
-      customerName: `${event.currentTarget.childNodes[0].innerText}`,
-      customerAccountNo: `${event.currentTarget.childNodes[2].innerText}`,
-    });
-    history.push('confirmation');
-  };
-
-  const list = search(recipient).map((data, index) => {
-    return (
-      <div key={index} className="payeeBox" onClick={handleClick}>
-        <div style={{ fontSize: '16px' }}>{data.accountHolderName}</div>
-        <br />
-        <div style={{ fontSize: '12px', marginTop: '15px' }}>
-          {data.accountNo}
-        </div>
-      </div>
-    );
-  });
-
-  function search(items) {
-    return items.filter((item) => {
-      return searchParam.some((newItem) => {
-        return (
-          item[newItem].toString().toLowerCase().indexOf(query.toLowerCase()) >
-          -1
-        );
-      });
-    });
-  }
   return (
     <div>
       <div
@@ -82,7 +52,11 @@ const Transfer = (props) => {
           onKeyUp={(e) => setQuery(e.target.value)}
         ></input>
       </div>
-      {list}
+      <PayeeBox
+        setCustomerInfo={loggedContext.setCustomerInfo}
+        recipient={recipient}
+        query={query}
+      />
     </div>
   );
 };
