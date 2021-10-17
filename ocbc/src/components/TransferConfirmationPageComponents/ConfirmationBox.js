@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { LoggedContext } from '../../App';
 import { useHistory } from 'react-router';
 import axios from 'axios';
 const ConfirmationBox = ({
@@ -6,7 +7,9 @@ const ConfirmationBox = ({
   customerAccountNo,
   setTransferInfo,
 }) => {
+  const loggedContext = useContext(LoggedContext);
   const [isError, setIsError] = useState(false);
+  const [limitError, setLimitError] = useState(false);
   const history = useHistory();
 
   const handleSubmit = (event) => {
@@ -14,35 +17,38 @@ const ConfirmationBox = ({
     const transferComments = event.currentTarget.comments.value;
     const transferAmount = event.currentTarget.amount.value;
     const transferDate = new Date();
-
-    axios
-      .post(
-        '/transfer',
-        {
-          recipientAccountNo: customerAccountNo,
-          amount: transferAmount,
-          date: transferDate,
-          description: transferComments,
-        },
-        {
-          headers: {
-            authorization: localStorage.getItem('access_token'),
+    if (transferAmount > loggedContext.balance) {
+      setLimitError(true);
+    } else {
+      axios
+        .post(
+          '/transfer',
+          {
+            recipientAccountNo: customerAccountNo,
+            amount: transferAmount,
+            date: transferDate,
+            description: transferComments,
           },
-        }
-      )
-      .then((res) => {
-        if (res.status === 200) {
-          setTransferInfo({
-            transferAmount: transferAmount,
-            transferComments: transferComments,
-          });
-          history.push('/success');
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-        setIsError(true);
-      });
+          {
+            headers: {
+              authorization: localStorage.getItem('access_token'),
+            },
+          }
+        )
+        .then((res) => {
+          if (res.status === 200) {
+            setTransferInfo({
+              transferAmount: transferAmount,
+              transferComments: transferComments,
+            });
+            history.push('/success');
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          setIsError(true);
+        });
+    }
   };
   return (
     <div className="confirmationBox">
@@ -68,12 +74,17 @@ const ConfirmationBox = ({
           maxLength="30"
           defaultValue="PayNow Transfer"
           style={{ lineHeight: '2em' }}
-        />
+        />{' '}
+        {isError && (
+          <div style={{ color: 'red' }}>
+            There was an error in your transfer, please try again
+          </div>
+        )}
+        {limitError && (
+          <div style={{ color: 'red' }}>Not Enough Account Limit</div>
+        )}
         <button className="confirmationButton">Transfer Now</button>
       </form>
-      {isError && (
-        <div>There was an error in your transfer, please try again</div>
-      )}
     </div>
   );
 };

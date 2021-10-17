@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { LoggedContext } from '../App.js';
 import axios from 'axios';
 import Greeting from '../components/AccountBalancePageComponents/Greeting';
 import AccountBalanceScreen from '../components/AccountBalancePageComponents/AccountBalanceBox';
 import TransferButton from '../components/AccountBalancePageComponents/TransferButton';
 import LogOutButton from '../components/AccountBalancePageComponents/LogOutButton';
+
 const moment = require('moment');
+
 const Account = (props) => {
+  const loggedContext = useContext(LoggedContext);
   const date = new Date().getHours();
   const [currentTime, setCurrenttime] = useState(new Date().toLocaleString());
-  const [balance, setBalance] = useState('');
   const [hide, setHide] = useState(false);
   const username = localStorage.getItem('username');
 
@@ -22,7 +25,7 @@ const Account = (props) => {
         },
       })
       .then((res) => {
-        setBalance(res.data.balance);
+        loggedContext.setBalance(res.data.balance);
         setCurrenttime(moment(new Date()).format('DD MMM YYYY, h:mm:ss a'));
       })
       .catch((err) => {
@@ -34,7 +37,7 @@ const Account = (props) => {
     <div>
       <Greeting date={date} username={username} />
       <AccountBalanceScreen
-        balance={balance}
+        balance={loggedContext.balance}
         setHide={setHide}
         hide={hide}
         currentTime={currentTime}

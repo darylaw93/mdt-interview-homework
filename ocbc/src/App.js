@@ -21,11 +21,15 @@ function App() {
     transferComments: '',
   });
 
+  const [balance, setBalance] = useState('');
+
   const superProps = {
     ...customerInfo,
     setCustomerInfo,
     ...transferInfo,
     setTransferInfo,
+    balance,
+    setBalance,
   };
 
   const PrivateRoute = ({ component: Component, handleChildFunc, ...rest }) => {
