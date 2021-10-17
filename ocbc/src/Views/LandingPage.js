@@ -12,7 +12,7 @@ const LandingPage = () => {
     const password = event.target.elements.password.value;
 
     axios
-      .post('http://localhost:8080/authenticate/login', {
+      .post('/authenticate/login', {
         username: username,
         password: password,
       })
@@ -20,7 +20,6 @@ const LandingPage = () => {
         if (res.status === 200) {
           localStorage.setItem('access_token', res.data.token);
           localStorage.setItem('username', username);
-          console.log(res);
           history.push('/account');
         }
       })
@@ -36,7 +35,7 @@ const LandingPage = () => {
         <br />
         <form onSubmit={HandleSubmit}>
           <div className="user-box">
-            <input type="text" name="username" required />
+            <input type="text" name="username" autoComplete="off" required />
             <label>Username</label>
           </div>
           <div className="user-box">

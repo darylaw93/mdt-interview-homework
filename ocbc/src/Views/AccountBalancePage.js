@@ -14,7 +14,7 @@ const Account = (props) => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080/account/balances', {
+      .get('/account/balances', {
         headers: {
           'content-type': 'application/json',
           Accept: 'application/json',

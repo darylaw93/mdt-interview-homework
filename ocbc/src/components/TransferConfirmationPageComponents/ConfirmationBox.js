@@ -17,7 +17,7 @@ const ConfirmationBox = ({
 
     axios
       .post(
-        'http://localhost:8080/transfer',
+        '/transfer',
         {
           recipientAccountNo: customerAccountNo,
           amount: transferAmount,
@@ -31,7 +31,6 @@ const ConfirmationBox = ({
         }
       )
       .then((res) => {
-        console.log(transferAmount);
         if (res.status === 200) {
           setTransferInfo({
             transferAmount: transferAmount,
@@ -44,10 +43,6 @@ const ConfirmationBox = ({
         console.log(err);
         setIsError(true);
       });
-    console.log(
-      event.currentTarget.comments.value,
-      event.currentTarget.amount.value
-    );
   };
   return (
     <div className="confirmationBox">

@@ -12,7 +12,7 @@ const Transfer = () => {
   const history = useHistory();
   useEffect(() => {
     axios
-      .get('http://localhost:8080/account/payees', {
+      .get('/account/payees', {
         headers: {
           'content-type': 'application/json',
           Accept: 'application/json',
@@ -20,7 +20,6 @@ const Transfer = () => {
         },
       })
       .then((res) => {
-        console.log(res.data.data);
         setRecipient(res.data.data);
       })
       .catch((err) => console.log(err));

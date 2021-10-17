@@ -6,8 +6,10 @@ import Transactions from './components/AccountBalancePageComponents/Transactions
 import Transfer from './Views/TransferRecipientPage';
 import ConfirmationScreen from './Views/TransferConfirmationPage';
 import TransferSuccess from './Views/TransferSuccess';
+import axios from 'axios';
 
 export const LoggedContext = createContext();
+axios.defaults.baseURL = 'http://localhost:8080';
 
 function App() {
   const [customerInfo, setCustomerInfo] = useState({

@@ -8,7 +8,7 @@ const Transactions = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080/account/transactions', {
+      .get('/account/transactions', {
         headers: {
           'content-type': 'application/json',
           Accept: 'application/json',
@@ -16,7 +16,6 @@ const Transactions = () => {
         },
       })
       .then((res) => {
-        console.log(res.data.data);
         setList(res.data.data);
       })
       .catch((err) => {
