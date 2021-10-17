@@ -3,12 +3,6 @@
 A simple Mobile banking app built with React, NodeJS, CSS & HTML
 Other frameworks & Libraries used includes MomentJS & Axios
 
-## Table of contents
-
--[Introduction](#Introduction)
-
-## Introduction 
-
 ##Features
 
 There are 5 main pages in this app.
