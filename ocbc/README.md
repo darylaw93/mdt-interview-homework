@@ -3,7 +3,7 @@
 A simple Mobile banking app built with React, NodeJS, CSS & HTML
 Other frameworks & Libraries used includes MomentJS & Axios
 
-##Features
+## Features
 
 There are 5 main pages in this app.
 
@@ -47,7 +47,7 @@ Preview of page
 
 ![success](/ocbc/ReadMeImages/OCBCsummary.gif)
 
-##About
+## About
 
 Project is created by Daryl Aw for an Interview with OCBC.
 
