@@ -17,7 +17,7 @@ There are 5 main pages in this app.
 - -A simple login screen with a GET request towards the backend providing login info while getting the JWT token in return which is then stored in LocalStorage for authentication in the app.
 
 Preview of Page
-(/ReadMeImages/OCBClogin.gif)
+![Login](/ReadMeImages/OCBClogin.gif)
 
 -**Account View** (/account)
 - -
