@@ -151,7 +151,9 @@ input:-webkit-autofill:active {
 }
 .transactionBody {
   overflow-y: scroll;
-  height: 330px;
+  height: 340px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .transactionBox {

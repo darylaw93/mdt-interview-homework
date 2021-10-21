@@ -45,7 +45,7 @@ const Account = (props) => {
       <TransferButton />
       <LogOutButton />
       <br />
-      <div>{props.children}</div>
+      <div className="transactionScreenBox">{props.children}</div>
     </div>
   );
 };
