@@ -7,8 +7,11 @@ Other frameworks & Libraries used includes MomentJS & Axios
 
 Dependencies installation
 
+Dependencies used includes, React, Axios, MomentJS.
 
 ```npm install```
+
+
 
 ## Features
 
