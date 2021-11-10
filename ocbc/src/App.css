@@ -2,8 +2,8 @@
   text-align: center;
   margin: 0;
   border: 1px solid black;
-  width: 323px;
-  height: 701px;
+  width: 350px;
+  height: 700px;
   margin-left: auto;
   margin-right: auto;
   background-color: #6f1a07;
@@ -37,10 +37,10 @@
   width: 100%;
   padding: 10px 0;
   font-size: 16px;
-  color: #ecf0f1;
+  color: black;
   margin-bottom: 30px;
   border: none;
-  border-bottom: 1px solid #ecf0f1;
+  border-bottom: 1px solid black;
   outline: none;
   background: transparent;
 }
@@ -51,7 +51,7 @@
   left: 0;
   padding: 10px 0;
   font-size: 16px;
-  color: #ecf0f1;
+  color: black;
   pointer-events: none;
   transition: 0.5s;
 }
@@ -59,7 +59,7 @@
 .user-box input:valid ~ label {
   top: -20px;
   left: 0;
-  color: #ecf0f1;
+  color: black;
   font-size: 12px;
 }
 
@@ -72,7 +72,13 @@
   padding: 40px;
   box-sizing: border-box;
   transform: translate (-50%, -50%);
-  background-color: #6f1a07;
+  background-color: whitesmoke;
+  border-radius: 25px;
+}
+
+.SignInForm img {
+  width: 200px;
+  margin-bottom: 10px;
 }
 
 .SignInForm button {
@@ -296,4 +302,14 @@ input:-webkit-autofill:active {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
 }

@@ -24,7 +24,7 @@ const TransferButton = () => {
       >
         ⇌
       </button>
-      <div style={{ fontSize: '12px', paddingTop: '5px' }}>Transfer Money</div>
+      <div style={{ fontSize: '12px', paddingTop: '5px' }}>Transfer</div>
     </div>
   );
 };

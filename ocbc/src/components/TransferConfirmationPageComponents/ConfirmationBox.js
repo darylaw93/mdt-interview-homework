@@ -57,13 +57,14 @@ const ConfirmationBox = ({
       <div>Bank Account No. {customerAccountNo}</div>
       <br />
       <form onSubmit={handleSubmit}>
-        <div>Amount in SGD</div>
+        <div>Transfer Amount</div>
         <input
           className="searchForm"
           name="amount"
           type="number"
           min="0.01"
           step=".01"
+          placeholder="Amount in SGD"
           required
         />
         <div>Add Comments for Recipient</div>
@@ -72,7 +73,7 @@ const ConfirmationBox = ({
           name="comments"
           type="text"
           maxLength="30"
-          defaultValue="PayNow Transfer"
+          defaultValue="OCBC Transfer"
           style={{ lineHeight: '2em' }}
         />{' '}
         {isError && (

@@ -48,7 +48,9 @@ const Transfer = () => {
           name="search-form"
           className="searchForm"
           placeholder="Search for a name"
+          autoComplete="off"
           onKeyUp={(e) => setQuery(e.target.value)}
+          style={{ marginBottom: '0px', borderBottom: '1px solid black' }}
         ></input>
       </div>
       <PayeeBox

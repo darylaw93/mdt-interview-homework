@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import ocbcLogo from '../assets/ocbclogo.png';
 import axios from 'axios';
 
 const LandingPage = () => {
@@ -31,7 +32,8 @@ const LandingPage = () => {
   return (
     <>
       <div className="SignInForm">
-        <h2>OCBC Banking App</h2>
+        <img src={ocbcLogo} alt="Ocbc Logo" />
+        {/* <h2>OCBC Banking App</h2> */}
         <br />
         <form onSubmit={HandleSubmit}>
           <div className="user-box">

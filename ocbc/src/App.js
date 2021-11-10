@@ -7,6 +7,7 @@ import Transfer from './Views/TransferRecipientPage';
 import ConfirmationScreen from './Views/TransferConfirmationPage';
 import TransferSuccess from './Views/TransferSuccess';
 import axios from 'axios';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 export const LoggedContext = createContext();
 axios.defaults.baseURL = 'http://localhost:8080';
@@ -54,20 +55,25 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <LoggedContext.Provider value={superProps}>
-        <main>
-          <Switch>
-            <Route exact path="/" component={LandingPage} />
-            <PrivateRoute path="/account" component={Transactions} />
-            <PrivateRoute path="/transfer" component={Transfer} />
-            <PrivateRoute path="/confirmation" component={ConfirmationScreen} />
-            <PrivateRoute path="/success" component={TransferSuccess} />
-            <Redirect to="/" />
-          </Switch>
-        </main>
-      </LoggedContext.Provider>
-    </div>
+    <Router>
+      <div className="App">
+        <LoggedContext.Provider value={superProps}>
+          <main>
+            <Switch>
+              <Route exact path="/" component={LandingPage} />
+              <PrivateRoute path="/account" component={Transactions} />
+              <PrivateRoute path="/transfer" component={Transfer} />
+              <PrivateRoute
+                path="/confirmation"
+                component={ConfirmationScreen}
+              />
+              <PrivateRoute path="/success" component={TransferSuccess} />
+              <Redirect to="/" />
+            </Switch>
+          </main>
+        </LoggedContext.Provider>
+      </div>
+    </Router>
   );
 }
 
