@@ -1,8 +1,14 @@
 import React from 'react';
-import reactDOM from 'react-dom';
 import LandingPage from './LandingPage';
+import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
 
-import { render } from '@testing-library/react';
-import 'jest-dom/extend-expect ';
+test('on initial render, page loads with login button enabled', () => {
+  render(<LandingPage />);
+  screen.getByRole('button', { name: /login/i }).toBeEnabled();
+});
 
-test();
+// test('authentication triggers when wrong id/pw', () => {
+//     render(<LandingPage username="ocbc" password="123456"/>)
+//     screen.debug()
+// });

@@ -11,7 +11,7 @@ const moment = require('moment');
 const Account = (props) => {
   const loggedContext = useContext(LoggedContext);
   const date = new Date().getHours();
-  const [currentTime, setCurrenttime] = useState(new Date().toLocaleString());
+  const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
   const [hide, setHide] = useState(false);
   const username = localStorage.getItem('username');
 
@@ -26,7 +26,7 @@ const Account = (props) => {
       })
       .then((res) => {
         loggedContext.setBalance(res.data.balance);
-        setCurrenttime(moment(new Date()).format('DD MMM YYYY, h:mm:ss a'));
+        setCurrentTime(moment(new Date()).format('DD MMM YYYY, h:mm:ss a'));
       })
       .catch((err) => {
         console.log(err);
