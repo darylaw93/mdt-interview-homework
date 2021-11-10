@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# OCBC Interview Homework - Simple Mobile App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple Mobile banking app built with React, NodeJS, CSS & HTML
+Other frameworks & Libraries used includes MomentJS & Axios
 
-## Available Scripts
+## Set Up Information
 
-In the project directory, you can run:
+Dependencies installation
 
-### `npm start`
+Dependencies used includes, React, Axios, MomentJS.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```npm install```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+There are 5 main pages in this app.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Login screen** ("/")
+  - A simple login screen with a GET request towards the backend providing login info while getting the JWT token in return which is then stored in LocalStorage for authentication in the app.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Preview of page
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+![Login](/ocbc/ReadMeImages/OCBClogin.gif)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **Account View** (/account)
+  - Account viewer was done with the aim of keeping it minimalist while still providing enough information that one expects from a mobile banking app, functions includes hide/unhide account balance as well as looking through past transactions.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Preview of page
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![account](/ocbc/ReadMeImages/OCBCaccountbalance.gif)
 
-## Learn More
+- **Transfer Payee Page** (/transfer)
+  - This page allows users to select payee from the list of payees they've on their friend list. Simple search function is included to allow users to search for payees should the list be too long.
+  - Selecting a payee will lead you to the next page.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Preview of page
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![transfer](/ocbc/ReadMeImages/OCBCpayee.gif)
 
-### Code Splitting
+- **Transfer Confirmation Page** (/confirmation)
+  - Simple form built in that accepts two inputs, amount in SGD & comments for the recipient.
+  - POST request will be made upon submitting.
+ 
+Preview of page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![confirmation](/ocbc/ReadMeImages/OCBCsuccess.gif)
 
-### Analyzing the Bundle Size
+- **Transfer Success Page** (/confirmation)
+  - Confirmation of transfer page with summarised information for user
+  - buttons included are Home button which will bring users back to Account View (/account) or make another transfer which will bring users back to Transfer Payee Page (/transfer)
+ 
+Preview of page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![success](/ocbc/ReadMeImages/OCBCsummary.gif)
 
-### Making a Progressive Web App
+## About
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Project is created by Daryl Aw for an Interview with OCBC.
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
