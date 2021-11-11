@@ -119,6 +119,8 @@ input:-webkit-autofill:active {
   color: #2b2118;
   height: 200px;
   border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 .accountBalance h1 {
@@ -155,9 +157,13 @@ input:-webkit-autofill:active {
   cursor: pointer;
   opacity: 70%;
 }
+
+.transactionScreenBox {
+  overflow: hidden;
+}
 .transactionBody {
   overflow-y: scroll;
-  height: 340px;
+  height: 360px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
@@ -219,6 +225,8 @@ input:-webkit-autofill:active {
   border: none;
   border-bottom: 1px solid #ecf0f1;
   outline: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 .confirmationBox {
@@ -229,6 +237,8 @@ input:-webkit-autofill:active {
   padding-top: 20px;
   border-radius: 20px;
   margin-top: 20%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 .confirmationButton {

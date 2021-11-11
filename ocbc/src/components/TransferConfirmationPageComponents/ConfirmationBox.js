@@ -54,7 +54,7 @@ const ConfirmationBox = ({
     <div className="confirmationBox">
       <div>Transferring to</div>
       <div style={{ fontWeight: 'bold' }}>{customerName}</div>
-      <div>Bank Account No. {customerAccountNo}</div>
+      <div>Account No. {customerAccountNo}</div>
       <br />
       <form onSubmit={handleSubmit}>
         <div>Transfer Amount</div>
@@ -67,14 +67,13 @@ const ConfirmationBox = ({
           placeholder="Amount in SGD"
           required
         />
-        <div>Add Comments for Recipient</div>
+        <div>Comments for Recipient</div>
         <input
           className="searchForm"
           name="comments"
           type="text"
           maxLength="30"
           defaultValue="OCBC Transfer"
-          style={{ lineHeight: '2em' }}
         />{' '}
         {isError && (
           <div style={{ color: 'red' }}>
